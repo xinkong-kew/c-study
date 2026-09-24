@@ -67,8 +67,93 @@
 
 //     return 0;
 // }
-int main()
+// int main()
+// {
+//     int arr[10]={98,97,95,94,93,92,91,90,89,88};
+//     int i=0;
+//     int sz=sizeof(arr)/sizeof(arr[0]);
+//     while(i<sz)
+//     {
+//         printf("%d\n",arr[i]);
+//         i++;
+//     }
+//     return 0;
+// }
+//  
+// int main()
+// {
+//     int i = 1;
+//     do
+//     {
+//         if(i == 5)
+//         continue;
+//         printf("%d\n",i);
+//         i++;
+//     }
+//     while(i <= 10);
+//     return 0;
+// }
+// int main()
+// {
+//     int i=1;
+//     int n=0;
+//     int sum=1;
+//     scanf("%d",&n);
+//     for(i = 1;i <= n;i++)
+//     {
+//         sum = sum * i;
+//     }
+//     printf("%d\n",sum);
+    
+//     return 0;
+// }
+
+// int main ()
+// {
+//     int i=1;
+//     int n=0;
+//     scanf("%d",&n);
+//     int sum=1;
+//     int ret  = 0;
+//     for(i = 1;i <= n; i++)
+//     {
+//         sum =sum * i;
+//         ret = ret + sum;
+//     }
+//     printf("%d\n",ret);
+//     return 0;
+// }
+
+int  main()
 {
-    1
+    int left  = 0;
+    int arr[10]={1,2,3,4,5,6,7,8,9,10};
+    int sz = sizeof(arr)/sizeof(arr[0]);
+    int right = sz-1;
+    int mid = (left + right) / 2;
+
+    int k = 7;
+    while(left <= right){
+    if (arr[mid] < k)
+        {
+            left = mid + 1;
+            mid = (left + right) / 2;
+        }
+        else if (arr[mid] > k)
+        {
+            right = mid - 1;
+            mid = (left + right) / 2;
+        }
+        else
+        {
+            printf("找到了 k=%d\n",k);
+            break;
+        }
+    }
+    if(left > right)
+    {
+        printf("没有找到 k=%d\n",k);
+    }
     return 0;
+
 }
