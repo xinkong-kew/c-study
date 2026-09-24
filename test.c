@@ -1,4 +1,8 @@
 #include <stdio.h>
+
+
+
+
 // int add(int x,int y)
 
 // {
@@ -124,36 +128,167 @@
 //     return 0;
 // }
 
+//二分法找有序数组值
+// int  main()
+// {
+//     int left  = 0;
+//     int arr[10]={1,2,3,4,5,6,7,8,9,10};
+//     int sz = sizeof(arr)/sizeof(arr[0]);
+//     int right = sz-1;
+    
+//     int k = 7;
+//     while(left <= right){
+//         int mid = (left + right) / 2;
+//         if (arr[mid] < k)
+//             {
+//                 left = mid + 1;
+//                 mid = (left + right) / 2;
+//             }
+//             else if (arr[mid] > k)
+//             {
+//                 right = mid - 1;
+//                 mid = (left + right) / 2;
+//             }
+//             else
+//             {
+//                 printf("找到了 k=%d\n",k);
+//                 break;
+//             }
+//     }
+//     if(left > right)
+//     {
+//         printf("没有找到 k=%d\n",k);
+//     }
+//     return 0;
+
+// }
+
+// #include <string.h>
+// #include <windows.h>
+// #include <stdlib.h>
+// int  main()
+// {
+//     char arr1[]="hello world";
+//     char arr2[]="###########";
+    
+//     int left = 0;
+//     int right = strlen(arr2)-1;
+//     while(left <= right)
+//     {
+//         arr2[left] =  arr1[left];
+//         arr2[right] = arr1[right];
+//         Sleep(1000);//include <windows.h>文件
+//         //清空屏幕
+//         system("cls");//include <stdlib.h>文件
+//         left++;
+//         right--;
+//         printf("%s\n",arr2);
+        
+//     }
+//     return 0;
+// }
+
+// #include <string.h>
+// int main()
+// {
+//     int i =   0;
+//     char password[20]  = { 0  };
+//     for(i = 0;i < 3;i++)
+//     {
+//         printf("请输入密码");
+//         scanf("%s",password);
+//         if(strcmp(password,"abcdef") == 0)
+//         {
+//                 printf("密码正确\n");
+//                 break;
+//         }
+//         else
+//         {
+//             printf("密码错误\n");
+//         }
+//     }   
+//     if(i == 3)
+//     {
+//         printf("三次密码均输入错误，退出程序\n");
+//     }
+//     return 0;
+// }
+
+//电脑产生 一个 随机数（1-100）
+    //猜数字
+    //猜大了 
+    //猜小了
+    //直到猜对了  结束
+
+//     #include <stdlib.h> 
+//     #include <time.h>
+//     void menu()
+//     {
+//         printf("**********************\n");
+//         printf("********1.paly********\n");
+//         printf("********0.exit********\n");
+//         printf("**********************\n");
+//     }
+
+//     void game()
+//     {
+//         int guess = 0;
+//         //0~RAND_MAX(32767)
+//         RAND_MAX;
+//         //1.生成随机数 （1-100）
+//         int num = rand()%100+1;
+//       while(1)
+//       {
+//         printf("请猜数字\n");
+//         scanf("%d",&guess);
+//           if(guess == num)
+//         {
+//             printf("恭喜您猜对了\n");
+//             break;
+//         }
+//         else if(guess > num)
+//         {
+//             printf("您猜的数字大了\n");
+//         }
+//         else
+//         {
+//             printf("您猜的数字小了\n");
+//         }
+//       }
+//     }
+
+
+// int main()
+// {
+//     int input = 0;
+//     srand((unsigned int)time(NULL));//设置随机种子，种子为当前时间戳 srand:设置随机起点
+
+//     do
+//     {
+//         menu();
+//         printf("请输入您的选择：");
+//         scanf("%d",&input);
+//         switch(input)
+//         {
+//             case 1:
+//             printf("猜数字\n");
+//             game();
+//             break;
+//             case 0:
+//             printf("退出游戏\n");
+//             break;
+//             default:
+//             printf("选择错误，重新选择 \n");
+//             break;
+//         }
+
+//     }while(input);
+
+//     return 0;
+// }
+
 int  main()
 {
-    int left  = 0;
-    int arr[10]={1,2,3,4,5,6,7,8,9,10};
-    int sz = sizeof(arr)/sizeof(arr[0]);
-    int right = sz-1;
-    int mid = (left + right) / 2;
-
-    int k = 7;
-    while(left <= right){
-    if (arr[mid] < k)
-        {
-            left = mid + 1;
-            mid = (left + right) / 2;
-        }
-        else if (arr[mid] > k)
-        {
-            right = mid - 1;
-            mid = (left + right) / 2;
-        }
-        else
-        {
-            printf("找到了 k=%d\n",k);
-            break;
-        }
-    }
-    if(left > right)
-    {
-        printf("没有找到 k=%d\n",k);
-    }
+    
     return 0;
-
-}
+}   
