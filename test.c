@@ -1095,8 +1095,44 @@
 //     return 0;
 // }
 
-int main()
-{
-    
-    return 0;
-}
+//反转字符串 字符串内部再反转
+// #include <stdio.h>
+// #include <string.h>
+// void reverse(char* left,char* right)
+// {
+//     while(left<right)
+//     {
+//         char temp = *left;
+//         *left = *right;
+//         *right = temp;
+//         left++;
+//         right--;
+//     }
+// }
+// int main()
+// {
+//     char arr[101]={ 0 };
+//     gets(arr);
+//     int sz = strlen(arr);
+//     char* left=arr;
+//     char* right = arr+sz-1;
+//     reverse(left,right);
+
+//     char* start = arr;
+// while(*start != '\0' )
+// {
+//     char* end = start;
+//     while(*end !=' ' && *end !='\0')
+//     {
+//         end++;
+//     }
+//     reverse(start,end-1);
+//     if(*end !='\0')
+//     {
+//     end++;
+//     }
+//     start = end;
+// }
+// printf("%s",arr);
+//     return 0;
+// }
