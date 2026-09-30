@@ -773,9 +773,330 @@
 //     return 0;
 // }
 
-//三子棋
+//& - 按位与 两个为1，才为1
+//| 按位或 有一个为1，就为1
+//^ 按位异或 相同为0，不同为1
+//~ 按位取反 
+// int main()
+// {
+//         int a = 3;
+//         int b = -5;
+//         int c = a&b;
+//         //0000000000000000000000000011 --3的补码
+//         //1000000000000000000000000101 -5的原码
+//         //1111111111111111111111111010
+//         //1111111111111111111111111011
+//         printf("%d",c);
+//     return 0;
+// }
+
+//不创造新的变量 交换两个数的值
+// int main()
+// {
+//     int a = 3;
+//     int b = 5;
+//     printf("a=%d b=%d\n",a,b);
+//     a = a^b;//3^5
+//     b = b^a;//3^5^5 = 3
+//     a = a^b;//3^5^3 = 5
+//     printf("a=%d b=%d\n",a,b);
+//     return 0;
+// }
+
+//~ 按二进制位取反 取反后为0，0取反后为1
+// int main()
+// {
+//     int a = 3;
+//     int b = ~a;
+//     printf("%d",b);
+//     return 0;
+// }
+
+// int main()
+// {
+//     int a = 13;
+//     int n = 4;
+//    a |= (1<<n);//29
+//    a &= ~(1<<n);//13
+//     printf("%d",a);
+//     return 0;
+// }
+// #include<string.h>
+// struct stu
+// {
+//     char name[10];
+//     int age;
+//     double score;
+// };
+
+// void set_stu(struct stu* ps)
+// {
+//     strcpy(ps->name,"zhangsan");
+//     ps->age = 18;
+//     ps->score = 90.0;
+// }
+// void print_stu(struct stu ss)
+// {
+//     printf("%s %d ,%lf",ss.name,ss.age,ss.score);
+// }
+// int main()
+// {
+//     struct stu s = {0};
+//     set_stu(&s);
+//     print_stu(s);
+//    return 0;
+// }
+
+//指针变量
+// int main()
+// {
+//     int a= 0x11223344;
+//     int* pa=&a;
+//     char* pc =(char*)&a;
+
+//     printf("%p\n",pa);
+//     printf("%p\n",pa+1);
+
+//     printf("%p\n",pc);
+//     printf("%p\n",pc+1);
+//     printf("%zu",sizeof(*pa));
+
+
+//     return 0;
+// }
+
+// int  main()
+// {
+//     int* p;//p没有初始化，意味着没有明确的指向
+//     //一个局部变量不初始化的话，放的是随机值
+//     *p = 10;///非法访问内存，p就是野指针
+//     return 0;
+// }
+//野指针-越界访问
+// int main()
+// {
+//     int arr[10] = {0};
+//     int i = 0;
+//     int* p =arr;
+//     for(i=0;i<=10;i++)
+//     {
+//     int* p=i;
+//     p++;
+//     }
+//     return 0;
+// }
+// int main()
+// {
+//     int arr[10]={0};
+//     //arr 是首元素地址
+//     //int*  p = arr;
+//     int* p =arr;
+//     //通过指针来访问
+//     int sz = sizeof(arr)/sizeof(arr[0]);
+//     int i = 0;
+//     for(i =0;i < sz;i++)
+//     {
+//         printf("%d ",*(p+i));
+//     }
+//     return 0;
+// }
+
+// int main()
+// {
+//     int a =10;
+//     int* pa = &a;//一级指针
+//     int** ppa = &pa;//二级指针
+//     **ppa = 20;//通过二级指针来修改一级指针指向的内存中的值
+//     printf("%d",a);
+//     return 0;
+// }
+
+// int main()
+// {
+//     int a = 10;
+//     int b = 20;
+//     int c = 30;
+
+//     int arr[10];
+
+//     int* pa = &a;
+//     int* pb = &b;
+//     int* pc = &c;
+
+//     //指针数组
+//     int* parr[10] ={&a,&b,&c};
+    
+//     int i = 0;
+//     for(i =0;i < 3;i++)
+//     {
+//         printf("%d ",*(parr[i]));
+//     }
+    
+// }
+
+
+// int main()
+// {
+//     int arr1[4]={1,2,3,4};
+//     int arrp2[4]={2,3,4,5};
+//     int arr3[4] = {3,4,5,6};
+//     int* parr[3]={arr1,arrp2,arr3};
+//     int i = 0;
+//     for(i=0;i<3;i++)
+//     {
+//         int j = 0;
+//         for(j=0;j<4;j++)
+//         {
+//             //通过指针数组来访问
+//             //parr[i][j] 等价于 *(parr[i]+j)
+//             printf("%d ",parr[i][j]);
+
+//         }
+//         printf("\n");
+//     }
+//     return 0;
+// }
+
+//声明结构体
+// struct stu
+// {
+//     char name[20];
+//     char tele[12];
+//     char sex[5];
+//     int high;
+// };
+// struct stu
+// {
+//     char name[20];
+//     char tele[12];
+//     char sex[5];
+//     int high;
+// } p1,p2;//p1，p2是结构体创建的两个变量
+// int main()
+// {
+//     struct stu p1 = {0};//结构体变量的创建
+//     return 0;
+// }
+
+// struct peo
+// {
+//     char name[20];
+//     char tele[12];
+//     char sex[5];
+//     int high;
+// }p1,p2;
+// struct stu
+// {
+//     struct peo p;
+//     int num;
+//     float f;
+// };//p1，p2是结构体创建的两个变量
+
+// void print1(struct peo* sp)
+// {
+//     printf("%s %s %s %d\n",sp->name,sp->tele,sp->sex,sp->high);//结构体指针->成员变量名
+// }
+// void print2(struct peo p)
+
+// {
+//     printf("%s %s %s %d\n",p.name,p.tele,p.sex,p.high);//结构体变量.成员变量
+// }
+
+// int main()
+// {
+//     struct stu s = {{"zhangsan","156888998663","男",180},100,3.14};//结构体变量的创建
+//     struct peo p1={"lisi","15844563413","女",170};
+//     printf("%s %s %s %d\n",p1.name,p1.tele,p1.sex,p1.high);
+//     printf("%s %s %s %d %d %f\n",s.p.name,s.p.tele,s.p.sex,s.p.high,s.num,s.f);
+//     print1(&p1);
+//     print2(p1);
+//     return 0;
+// }
+
+
+//调试案例
+// int main()
+// {
+//     int i = 0;
+//     int arr[10]= {0};   
+//     for (i=0;i<10;i++)
+//     {
+//         arr[i] = i;
+//     }
+//     for(i=0;i<10;i++)
+//     {
+//         printf("%d ",arr[i]);
+//     }
+//     return 0;
+// }
+
+//计算1!+2!+3!+...+n!
+// int main()
+// {
+//     int n = 0;
+//     int i = 0;
+//     int j = 0;
+//     int sum = 0;
+//     scanf("%d",&n);
+//     for(i=1;i<=n;i++){
+//         int ret = 1;
+//         for(j=1;j<=i;j++)
+//         {
+//             ret *= j;
+
+//         }
+//         sum += ret;
+//     }
+//     printf("%d",sum);
+//     return 0;
+// }
+
+//i定义在数组上面，内存空间也在上面，数组越界访问有概率发生i的值被覆盖
+// int main()
+// {
+//     int i = 0;
+//     int arr[10] = {1,2,3,4,5,6,7,8,9,10};
+//     for(i=0;i<=12;i++)
+//     {
+//         arr[i] = 0;
+//         printf("hehe\n");
+//     }
+//     return 0;
+// }
+
+//const //保护原数据
+// int main()
+// {
+//     const int num = 10;
+//     const int* const p=&num;
+//     *p = 20;
+//     printf("%d",num);
+//     return 0;
+// }
+
+//求字符串长度
+// #include <assert.h>
+// int my_strlen(const char* str)
+// {
+//    int count = 0;
+//    assert(str != NULL);
+//    while(*str != '\0')
+//    {
+//     count++;
+//     str++;
+//    }
+//    return count;
+// }
+// int main()
+// {
+//     char arr[] = "hello bit";
+//     int len = my_strlen(arr);
+//     printf("%d",len);
+//     return 0;
+// }
+
 int main()
 {
-        
+    
     return 0;
 }
